@@ -205,7 +205,7 @@ export default function Navbar() {
             </div>
 
             <a
-              href="#cta"
+              href="#pricing"
               className="rounded-lg bg-primary-light px-5 py-2 text-base font-semibold text-white transition-colors hover:bg-primary"
             >
               Jetzt starten
@@ -299,7 +299,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="#cta"
+              href="#pricing"
               onClick={handleLinkClick}
               className="mt-2 block rounded-lg bg-primary-light px-3 py-2 text-center text-base font-semibold text-white transition-colors hover:bg-primary"
             >

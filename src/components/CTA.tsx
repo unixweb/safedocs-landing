@@ -9,7 +9,7 @@ export default function CTA() {
           Starten Sie jetzt kostenlos und überzeugen Sie sich selbst.
         </p>
         <a
-          href="#"
+          href="#pricing"
           className="inline-block bg-white text-primary font-semibold rounded-lg px-8 py-4 hover:bg-gray-100 transition"
         >
           Jetzt kostenlos starten

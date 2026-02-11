@@ -17,7 +17,7 @@ export default function Hero() {
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <a
-              href="#cta"
+              href="#pricing"
               className="inline-flex items-center justify-center rounded-lg bg-primary-light px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-primary"
             >
               Kostenlos testen
