@@ -281,7 +281,7 @@ export default function BlogTeaser() {
       title: "Digitale Transformation: Von Email Chaos zur Cloud Organisation",
       excerpt:
         "Wie der Umstieg auf digitale Dokumentenverwaltung Ihrem Unternehmen Zeit und Kosten spart.",
-      slug: "#",
+      slug: "/blog/digitale-transformation",
       illustration: <CloudTransformationIllustration />,
     },
   ];

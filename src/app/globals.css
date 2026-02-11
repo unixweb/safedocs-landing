@@ -2,12 +2,12 @@
 
 @theme inline {
   --color-primary: #1e3a5f;
-  --color-primary-light: #2d6da8;
+  --color-primary-light: #245fa0;
   --color-primary-dark: #152a45;
   --color-accent: #22c55e;
   --color-bg-light: #f7f8fa;
   --color-text-dark: #1a1a2e;
-  --color-text-muted: #64748b;
+  --color-text-muted: #475569;
   --font-sans: "Inter", system-ui, sans-serif;
 }
 
