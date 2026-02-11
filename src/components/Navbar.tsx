@@ -11,23 +11,47 @@ const navLinks = [
 
 const FONT_SIZES = [100, 112, 125, 137, 150] as const;
 const FONT_LABELS = ["100%", "112%", "125%", "137%", "150%"];
-const STORAGE_KEY = "safedocs-font-size";
+const FONT_STORAGE_KEY = "safedocs-font-size";
+const DARK_STORAGE_KEY = "safedocs-dark-mode";
+
+function SunIcon() {
+  return (
+    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1.5M12 19.5V21M4.22 4.22l1.06 1.06M17.72 17.72l1.06 1.06M3 12h1.5M19.5 12H21M4.22 19.78l1.06-1.06M17.72 6.28l1.06-1.06" />
+      <circle cx="12" cy="12" r="4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function MoonIcon() {
+  return (
+    <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+      <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+    </svg>
+  );
+}
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [fontIndex, setFontIndex] = useState(0);
+  const [dark, setDark] = useState(false);
 
-  // Load saved font size preference
+  // Load saved preferences
   useEffect(() => {
     try {
-      const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) {
-        const idx = FONT_SIZES.indexOf(Number(saved) as (typeof FONT_SIZES)[number]);
+      const savedFont = localStorage.getItem(FONT_STORAGE_KEY);
+      if (savedFont) {
+        const idx = FONT_SIZES.indexOf(Number(savedFont) as (typeof FONT_SIZES)[number]);
         if (idx !== -1) {
           setFontIndex(idx);
           document.documentElement.style.fontSize = `${FONT_SIZES[idx]}%`;
         }
+      }
+      const savedDark = localStorage.getItem(DARK_STORAGE_KEY);
+      if (savedDark === "true") {
+        setDark(true);
+        document.documentElement.classList.add("dark");
       }
     } catch {}
   }, []);
@@ -45,7 +69,7 @@ export default function Navbar() {
     setFontIndex((prev) => {
       const next = Math.max(0, prev - 1);
       document.documentElement.style.fontSize = `${FONT_SIZES[next]}%`;
-      try { localStorage.setItem(STORAGE_KEY, String(FONT_SIZES[next])); } catch {}
+      try { localStorage.setItem(FONT_STORAGE_KEY, String(FONT_SIZES[next])); } catch {}
       return next;
     });
   }, []);
@@ -54,7 +78,20 @@ export default function Navbar() {
     setFontIndex((prev) => {
       const next = Math.min(FONT_SIZES.length - 1, prev + 1);
       document.documentElement.style.fontSize = `${FONT_SIZES[next]}%`;
-      try { localStorage.setItem(STORAGE_KEY, String(FONT_SIZES[next])); } catch {}
+      try { localStorage.setItem(FONT_STORAGE_KEY, String(FONT_SIZES[next])); } catch {}
+      return next;
+    });
+  }, []);
+
+  const toggleDark = useCallback(() => {
+    setDark((prev) => {
+      const next = !prev;
+      if (next) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+      try { localStorage.setItem(DARK_STORAGE_KEY, String(next)); } catch {}
       return next;
     });
   }, []);
@@ -88,37 +125,51 @@ export default function Navbar() {
               </a>
             ))}
 
-            {/* Font size control */}
-            <div
-              className="flex items-center gap-1 rounded-lg border border-gray-200 px-1 py-1"
-              role="group"
-              aria-label="Schriftgröße anpassen"
-            >
+            {/* Accessibility controls */}
+            <div className="flex items-center gap-2">
+              {/* Font size control */}
+              <div
+                className="flex items-center gap-1 rounded-lg border border-gray-200 px-1 py-1"
+                role="group"
+                aria-label="Schriftgröße anpassen"
+              >
+                <button
+                  type="button"
+                  onClick={decreaseFont}
+                  disabled={fontIndex === 0}
+                  className="flex h-8 w-8 items-center justify-center rounded text-text-muted transition-colors hover:bg-bg-light hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed"
+                  aria-label="Schrift verkleinern"
+                  title="Schrift verkleinern"
+                >
+                  <span className="text-base font-bold leading-none" aria-hidden="true">A&minus;</span>
+                </button>
+                <span
+                  className="min-w-[3rem] text-center text-base font-medium text-text-muted select-none"
+                  aria-live="polite"
+                >
+                  {FONT_LABELS[fontIndex]}
+                </span>
+                <button
+                  type="button"
+                  onClick={increaseFont}
+                  disabled={fontIndex === FONT_SIZES.length - 1}
+                  className="flex h-8 w-8 items-center justify-center rounded text-text-muted transition-colors hover:bg-bg-light hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed"
+                  aria-label="Schrift vergrößern"
+                  title="Schrift vergrößern"
+                >
+                  <span className="text-base font-bold leading-none" aria-hidden="true">A+</span>
+                </button>
+              </div>
+
+              {/* Dark mode toggle */}
               <button
                 type="button"
-                onClick={decreaseFont}
-                disabled={fontIndex === 0}
-                className="flex h-8 w-8 items-center justify-center rounded text-text-muted transition-colors hover:bg-bg-light hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed"
-                aria-label="Schrift verkleinern"
-                title="Schrift verkleinern"
+                onClick={toggleDark}
+                className="flex h-10 w-10 items-center justify-center rounded-lg border border-gray-200 text-text-muted transition-colors hover:bg-bg-light hover:text-primary"
+                aria-label={dark ? "Hellen Modus aktivieren" : "Dunklen Modus aktivieren"}
+                title={dark ? "Hellen Modus aktivieren" : "Dunklen Modus aktivieren"}
               >
-                <span className="text-base font-bold leading-none" aria-hidden="true">A&minus;</span>
-              </button>
-              <span
-                className="min-w-[3rem] text-center text-base font-medium text-text-muted select-none"
-                aria-live="polite"
-              >
-                {FONT_LABELS[fontIndex]}
-              </span>
-              <button
-                type="button"
-                onClick={increaseFont}
-                disabled={fontIndex === FONT_SIZES.length - 1}
-                className="flex h-8 w-8 items-center justify-center rounded text-text-muted transition-colors hover:bg-bg-light hover:text-primary disabled:opacity-30 disabled:cursor-not-allowed"
-                aria-label="Schrift vergrößern"
-                title="Schrift vergrößern"
-              >
-                <span className="text-base font-bold leading-none" aria-hidden="true">A+</span>
+                {dark ? <SunIcon /> : <MoonIcon />}
               </button>
             </div>
 
@@ -130,8 +181,8 @@ export default function Navbar() {
             </a>
           </div>
 
-          {/* Mobile: font control + hamburger */}
-          <div className="flex items-center gap-2 md:hidden">
+          {/* Mobile: controls + hamburger */}
+          <div className="flex items-center gap-1 md:hidden">
             <button
               type="button"
               onClick={decreaseFont}
@@ -149,6 +200,16 @@ export default function Navbar() {
               aria-label="Schrift vergrößern"
             >
               <span className="text-base font-bold" aria-hidden="true">A+</span>
+            </button>
+
+            {/* Dark mode toggle mobile */}
+            <button
+              type="button"
+              onClick={toggleDark}
+              className="flex h-10 w-10 items-center justify-center rounded-md text-text-muted transition-colors hover:bg-bg-light hover:text-primary"
+              aria-label={dark ? "Hellen Modus aktivieren" : "Dunklen Modus aktivieren"}
+            >
+              {dark ? <SunIcon /> : <MoonIcon />}
             </button>
 
             <button

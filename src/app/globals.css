@@ -20,3 +20,100 @@ body {
   color: var(--color-text-dark);
   font-family: var(--font-sans);
 }
+
+/* Dark mode overrides */
+html.dark body {
+  background: #121826;
+  color: #e2e8f0;
+}
+
+html.dark nav,
+html.dark .bg-white {
+  background-color: #1a2332 !important;
+}
+
+html.dark .bg-bg-light {
+  background-color: #151d2b !important;
+}
+
+html.dark .bg-primary {
+  background-color: #0f1f33 !important;
+}
+
+html.dark .text-primary {
+  color: #7db4e0 !important;
+}
+
+html.dark .text-primary-light {
+  color: #6faad8 !important;
+}
+
+html.dark .text-text-dark {
+  color: #e2e8f0 !important;
+}
+
+html.dark .text-text-muted {
+  color: #94a3b8 !important;
+}
+
+html.dark .text-white\/80 {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+html.dark .text-white\/70 {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+html.dark .text-white\/60 {
+  color: rgba(255, 255, 255, 0.65) !important;
+}
+
+html.dark .border-gray-100,
+html.dark .border-gray-200 {
+  border-color: #2d3748 !important;
+}
+
+html.dark .divide-gray-200 > :not(:last-child) {
+  border-color: #2d3748 !important;
+}
+
+html.dark .shadow-sm,
+html.dark .shadow-md {
+  --tw-shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+html.dark .bg-gradient-to-br {
+  opacity: 0.9;
+}
+
+html.dark .hover\:bg-bg-light:hover {
+  background-color: #1f2937 !important;
+}
+
+html.dark .hover\:bg-primary:hover {
+  background-color: #1e3a5f !important;
+}
+
+html.dark .hover\:text-primary:hover {
+  color: #93c5fd !important;
+}
+
+html.dark .hover\:shadow-md:hover {
+  --tw-shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+html.dark .ring-primary-light {
+  --tw-ring-color: #6faad8 !important;
+}
+
+html.dark .border-primary-light {
+  border-color: #6faad8 !important;
+}
+
+html.dark .bg-primary-light {
+  background-color: #245fa0 !important;
+}
+
+html.dark .hover\:bg-primary-light:hover {
+  background-color: #2d6da8 !important;
+}
