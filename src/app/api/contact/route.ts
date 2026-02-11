@@ -27,7 +27,7 @@ export async function POST(request: Request) {
         "api-key": apiKey,
       },
       body: JSON.stringify({
-        sender: { name: "SafeDocs Portal", email: "info@safedocsportal.com" },
+        sender: { name: "SafeDocs Portal", email: "info@businesshelpdesk.biz" },
         to: [{ email: "info@safedocsportal.com", name: "SafeDocs Portal" }],
         replyTo: { email, name },
         subject: `Enterprise Anfrage von ${name}`,
