@@ -118,8 +118,8 @@ export default function ArchitectureDiagram() {
             {/* Node.js - Center (Green) */}
             <g className={`transition-all duration-700 ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-90"}`} style={{ transitionDelay: "400ms", transformOrigin: "400px 250px" }}>
               <rect x="320" y="210" width="160" height="80" rx="14" fill="#22c55e" fillOpacity="0.12" stroke="#22c55e" strokeWidth="2.5" />
-              <text x="400" y="245" textAnchor="middle" fontSize="17" fontWeight="700" fill="#16a34a" fontFamily="system-ui, sans-serif">Node.js</text>
-              <text x="400" y="268" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="system-ui, sans-serif">SafeDocs App Server</text>
+              <text x="400" y="245" textAnchor="middle" fontSize="17" fontWeight="700" fill="#16a34a" fontFamily="system-ui, sans-serif">Backend</text>
+              <text x="400" y="268" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="system-ui, sans-serif">Node.js App Server</text>
             </g>
 
             {/* PostgreSQL - Bottom (Dark Blue) */}
