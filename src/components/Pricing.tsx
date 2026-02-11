@@ -213,11 +213,11 @@ export default function Pricing() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-3">
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-xl bg-white p-8 shadow-sm ring-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.03] ${
+              className={`relative flex flex-col rounded-xl bg-white p-8 shadow-sm ring-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.03] ${
                 plan.highlighted
                   ? "ring-primary-light scale-105 hover:scale-[1.07]"
                   : "ring-primary-light/40 hover:ring-primary-light"
@@ -264,7 +264,7 @@ export default function Pricing() {
 
               {!plan.discount && <div className="mb-6" />}
 
-              <ul className="mb-8 space-y-3">
+              <ul className="mb-8 flex-1 space-y-3">
                 {plan.features.map((feature) => (
                   <li key={feature} className="flex items-center gap-2">
                     <svg
@@ -289,16 +289,12 @@ export default function Pricing() {
               {plan.contact ? (
                 <button
                   onClick={() => setShowContact(true)}
-                  className="w-full rounded-lg border-2 border-primary-light px-6 py-3 font-semibold text-primary-light transition hover:bg-primary-light hover:text-white cursor-pointer"
+                  className="w-full rounded-lg bg-primary-light px-6 py-3 font-semibold text-white transition hover:bg-primary cursor-pointer"
                 >
                   {plan.buttonText}
                 </button>
-              ) : plan.highlighted ? (
-                <a href={plan.buttonHref} className="block w-full rounded-lg bg-primary-light px-6 py-3 font-semibold text-white text-center transition hover:bg-primary">
-                  {plan.buttonText}
-                </a>
               ) : (
-                <a href={plan.buttonHref} className="block w-full rounded-lg border-2 border-primary-light px-6 py-3 font-semibold text-primary-light text-center transition hover:bg-primary-light hover:text-white">
+                <a href={plan.buttonHref} className="block w-full rounded-lg bg-primary-light px-6 py-3 font-semibold text-white text-center transition hover:bg-primary">
                   {plan.buttonText}
                 </a>
               )}
