@@ -5,14 +5,13 @@ export default function Hero() {
         {/* Left column — text content */}
         <div className="flex-1 flex flex-col items-center text-center lg:items-start lg:text-left">
           <h1 className="text-4xl font-bold leading-tight tracking-tight text-primary md:text-5xl lg:text-6xl">
-            Ihre Dokumente.
-            <br />
-            Sicher. Immer verfügbar.
+            Sicherer Dokumentenaustausch für Moderne Unternehmen
           </h1>
 
           <p className="mt-6 max-w-xl text-lg leading-relaxed text-text-muted">
-            SafeDocs Portal bietet Unternehmen eine sichere, DSGVO-konforme
-            Lösung für Dokumentenspeicherung und -verwaltung.
+            Das sichere Portal für Firmen und Selbstständige. Verwalten Sie
+            Kontakte, tauschen Sie sensible Verträge aus und bearbeiten Sie
+            Rechnungen mit moderner, authentifizierter Verschlüsselung.
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
