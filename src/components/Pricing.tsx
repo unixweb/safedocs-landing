@@ -6,15 +6,35 @@ function ContactModal({ onClose }: { onClose: () => void }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [sending, setSending] = useState(false);
+  const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent("Enterprise Anfrage");
-    const body = encodeURIComponent(
-      `Name / Firma: ${name}\nE-Mail: ${email}\n\nNachricht:\n${message}`
-    );
-    window.location.href = `mailto:info@safedocsportal.com?subject=${subject}&body=${body}`;
-    onClose();
+    setSending(true);
+    setStatus("idle");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setName("");
+        setEmail("");
+        setMessage("");
+        setTimeout(() => onClose(), 2000);
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -43,61 +63,78 @@ function ContactModal({ onClose }: { onClose: () => void }) {
           Interessiert an On-Premise oder einem individuellen Paket? Erzählen Sie uns kurz von Ihrem Anwendungsfall.
         </p>
 
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <div>
-            <label htmlFor="contact-name" className="block text-sm font-medium text-text-dark mb-1">
-              Name / Firma
-            </label>
-            <input
-              id="contact-name"
-              type="text"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Muster GmbH"
-              className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary-light"
-            />
+        {status === "success" ? (
+          <div className="flex flex-col items-center gap-3 py-6">
+            <svg className="h-12 w-12 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            </svg>
+            <p className="text-lg font-semibold text-text-dark">Anfrage gesendet!</p>
+            <p className="text-sm text-text-muted">Wir melden uns in Kürze bei Ihnen.</p>
           </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div>
+              <label htmlFor="contact-name" className="block text-sm font-medium text-text-dark mb-1">
+                Name / Firma
+              </label>
+              <input
+                id="contact-name"
+                type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="Muster GmbH"
+                className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary-light"
+              />
+            </div>
 
-          <div>
-            <label htmlFor="contact-email" className="block text-sm font-medium text-text-dark mb-1">
-              E-Mail
-            </label>
-            <input
-              id="contact-email"
-              type="email"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="kontakt@firma.de"
-              className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary-light"
-            />
-          </div>
+            <div>
+              <label htmlFor="contact-email" className="block text-sm font-medium text-text-dark mb-1">
+                E-Mail
+              </label>
+              <input
+                id="contact-email"
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="kontakt@firma.de"
+                className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary-light"
+              />
+            </div>
 
-          <div>
-            <label htmlFor="contact-message" className="block text-sm font-medium text-text-dark mb-1">
-              Nachricht
-            </label>
-            <textarea
-              id="contact-message"
-              required
-              rows={4}
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              placeholder="Ihre Nachricht an uns..."
-              className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary-light resize-y"
-            />
-          </div>
+            <div>
+              <label htmlFor="contact-message" className="block text-sm font-medium text-text-dark mb-1">
+                Nachricht
+              </label>
+              <textarea
+                id="contact-message"
+                required
+                rows={4}
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                placeholder="Ihre Nachricht an uns..."
+                className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary-light resize-y"
+              />
+            </div>
 
-          <div className="flex justify-end">
-            <button
-              type="submit"
-              className="rounded-lg bg-primary-light px-6 py-2.5 font-semibold text-white transition hover:bg-primary cursor-pointer"
-            >
-              Anfrage senden
-            </button>
-          </div>
-        </form>
+            {status === "error" && (
+              <p className="text-sm text-red-600">
+                Senden fehlgeschlagen. Bitte versuchen Sie es erneut.
+              </p>
+            )}
+
+            <div className="flex justify-end">
+              <button
+                type="submit"
+                disabled={sending}
+                className="rounded-lg bg-primary-light px-6 py-2.5 font-semibold text-white transition hover:bg-primary cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {sending ? "Wird gesendet…" : "Anfrage senden"}
+              </button>
+            </div>
+          </form>
+        )}
       </div>
     </div>
   );
