@@ -48,7 +48,7 @@ export default function ArchitectureDiagram() {
           >
             <title id="arch-title">SafeDocs Docker-Architektur</title>
             <desc id="arch-desc">
-              Hub-and-Spoke-Diagramm: Node.js App im Zentrum, verbunden mit Nginx (HTTPS), PostgreSQL (SQL), Redis (Cache) und ClamAV (Virenscan). Alle Komponenten laufen als Docker-Container on-premise.
+              Hub-and-Spoke-Diagramm: Node.js App im Zentrum, verbunden mit Frontend (HTTPS), PostgreSQL (SQL), Redis (Cache) und ClamAV (Virenscan). Alle Komponenten laufen als Docker-Container on-premise.
             </desc>
 
             {/* CSS animations inline */}
@@ -111,8 +111,8 @@ export default function ArchitectureDiagram() {
             {/* Nginx - Top (Blue) */}
             <g className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"}`} style={{ transitionDelay: "200ms" }}>
               <rect x="330" y="65" width="140" height="65" rx="12" fill="#3b82f6" fillOpacity="0.1" stroke="#3b82f6" strokeWidth="2" />
-              <text x="400" y="95" textAnchor="middle" fontSize="15" fontWeight="700" fill="#3b82f6" fontFamily="system-ui, sans-serif">Nginx</text>
-              <text x="400" y="115" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="system-ui, sans-serif">Reverse Proxy &amp; SSL</text>
+              <text x="400" y="95" textAnchor="middle" fontSize="15" fontWeight="700" fill="#3b82f6" fontFamily="system-ui, sans-serif">Frontend</text>
+              <text x="400" y="115" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="system-ui, sans-serif">Nginx &amp; SSL</text>
             </g>
 
             {/* Node.js - Center (Green) */}
