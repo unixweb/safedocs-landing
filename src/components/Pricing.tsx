@@ -1,4 +1,111 @@
+"use client";
+
+import { useState, FormEvent } from "react";
+
+function ContactModal({ onClose }: { onClose: () => void }) {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent("Enterprise Anfrage");
+    const body = encodeURIComponent(
+      `Name / Firma: ${name}\nE-Mail: ${email}\n\nNachricht:\n${message}`
+    );
+    window.location.href = `mailto:info@safedocsportal.com?subject=${subject}&body=${body}`;
+    onClose();
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) onClose();
+      }}
+    >
+      <div className="relative w-full max-w-md rounded-xl bg-white p-8 shadow-2xl">
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-text-muted hover:text-text-dark transition cursor-pointer"
+          aria-label="Schließen"
+        >
+          <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+
+        <h3 className="text-xl font-bold text-text-dark mb-1">
+          Enterprise Anfrage
+        </h3>
+        <p className="text-sm text-text-muted mb-6">
+          Interessiert an On-Premise oder einem individuellen Paket? Erzählen Sie uns kurz von Ihrem Anwendungsfall.
+        </p>
+
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label htmlFor="contact-name" className="block text-sm font-medium text-text-dark mb-1">
+              Name / Firma
+            </label>
+            <input
+              id="contact-name"
+              type="text"
+              required
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Muster GmbH"
+              className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary-light"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="contact-email" className="block text-sm font-medium text-text-dark mb-1">
+              E-Mail
+            </label>
+            <input
+              id="contact-email"
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="kontakt@firma.de"
+              className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary-light"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="contact-message" className="block text-sm font-medium text-text-dark mb-1">
+              Nachricht
+            </label>
+            <textarea
+              id="contact-message"
+              required
+              rows={4}
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+              placeholder="Ihre Nachricht an uns..."
+              className="w-full rounded-lg border border-gray-200 px-4 py-2.5 text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary-light resize-y"
+            />
+          </div>
+
+          <div className="flex justify-end">
+            <button
+              type="submit"
+              className="rounded-lg bg-primary-light px-6 py-2.5 font-semibold text-white transition hover:bg-primary cursor-pointer"
+            >
+              Anfrage senden
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 export default function Pricing() {
+  const [showContact, setShowContact] = useState(false);
+
   const plans = [
     {
       name: "Cloud Starter",
@@ -15,6 +122,7 @@ export default function Pricing() {
       buttonText: "14 Tage kostenlos testen",
       buttonHref: "https://buy.stripe.com/3cI28qbcPbpadOqdtac7u03",
       highlighted: false,
+      contact: false,
     },
     {
       name: "Cloud Business",
@@ -33,6 +141,7 @@ export default function Pricing() {
       buttonText: "14 Tage kostenlos testen",
       buttonHref: "https://buy.stripe.com/fZu5kC94H50MbGidtac7u04",
       highlighted: true,
+      contact: false,
     },
     {
       name: "Enterprise",
@@ -51,6 +160,7 @@ export default function Pricing() {
       buttonText: "Kontakt aufnehmen",
       buttonHref: "",
       highlighted: false,
+      contact: true,
     },
   ];
 
@@ -139,31 +249,28 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              {plan.highlighted ? (
-                plan.buttonHref ? (
-                  <a href={plan.buttonHref} className="block w-full rounded-lg bg-primary-light px-6 py-3 font-semibold text-white text-center transition hover:bg-primary">
-                    {plan.buttonText}
-                  </a>
-                ) : (
-                  <button className="w-full rounded-lg bg-primary-light px-6 py-3 font-semibold text-white transition hover:bg-primary">
-                    {plan.buttonText}
-                  </button>
-                )
+              {plan.contact ? (
+                <button
+                  onClick={() => setShowContact(true)}
+                  className="w-full rounded-lg border-2 border-primary-light px-6 py-3 font-semibold text-primary-light transition hover:bg-primary-light hover:text-white cursor-pointer"
+                >
+                  {plan.buttonText}
+                </button>
+              ) : plan.highlighted ? (
+                <a href={plan.buttonHref} className="block w-full rounded-lg bg-primary-light px-6 py-3 font-semibold text-white text-center transition hover:bg-primary">
+                  {plan.buttonText}
+                </a>
               ) : (
-                plan.buttonHref ? (
-                  <a href={plan.buttonHref} className="block w-full rounded-lg border-2 border-primary-light px-6 py-3 font-semibold text-primary-light text-center transition hover:bg-primary-light hover:text-white">
-                    {plan.buttonText}
-                  </a>
-                ) : (
-                  <button className="w-full rounded-lg border-2 border-primary-light px-6 py-3 font-semibold text-primary-light transition hover:bg-primary-light hover:text-white">
-                    {plan.buttonText}
-                  </button>
-                )
+                <a href={plan.buttonHref} className="block w-full rounded-lg border-2 border-primary-light px-6 py-3 font-semibold text-primary-light text-center transition hover:bg-primary-light hover:text-white">
+                  {plan.buttonText}
+                </a>
               )}
             </div>
           ))}
         </div>
       </div>
+
+      {showContact && <ContactModal onClose={() => setShowContact(false)} />}
     </section>
   );
 }
