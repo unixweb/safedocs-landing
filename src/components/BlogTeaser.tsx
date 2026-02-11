@@ -273,7 +273,7 @@ export default function BlogTeaser() {
       title: "DSGVO-Compliance: Was Unternehmen 2026 wissen müssen",
       excerpt:
         "Die wichtigsten Änderungen und Anforderungen im Datenschutz für das aktuelle Jahr im Überblick.",
-      slug: "#",
+      slug: "/blog/dsgvo-compliance-2026",
       illustration: <DsgvoIllustration />,
     },
     {
