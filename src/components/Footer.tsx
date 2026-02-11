@@ -15,37 +15,13 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#preise" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
+                <a href="#pricing" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
                   Preise
                 </a>
               </li>
               <li>
-                <a href="#api" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
-                  API-Dokumentation
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Unternehmen */}
-          <div>
-            <h3 className="text-base font-semibold uppercase tracking-wider text-white/80">
-              Unternehmen
-            </h3>
-            <ul className="mt-4 space-y-3">
-              <li>
-                <a href="#ueber-uns" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
-                  Über uns
-                </a>
-              </li>
-              <li>
-                <a href="#blog" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
-                  Blog
-                </a>
-              </li>
-              <li>
-                <a href="#karriere" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
-                  Karriere
+                <a href="#faq" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
+                  FAQ
                 </a>
               </li>
             </ul>
@@ -65,11 +41,6 @@ export default function Footer() {
               <li>
                 <a href="/datenschutz" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
                   Datenschutz
-                </a>
-              </li>
-              <li>
-                <a href="#agb" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
-                  AGB
                 </a>
               </li>
             </ul>

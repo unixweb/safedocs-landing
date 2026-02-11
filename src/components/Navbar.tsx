@@ -6,7 +6,6 @@ const navLinks = [
   { label: "Features", href: "#features" },
   { label: "Preise", href: "#pricing" },
   { label: "FAQ", href: "#faq" },
-  { label: "Blog", href: "#blog" },
 ];
 
 const FONT_SIZES = [100, 112, 125, 137, 150] as const;

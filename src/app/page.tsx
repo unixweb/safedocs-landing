@@ -8,7 +8,6 @@ import SetupAnimation from "@/components/SetupAnimation";
 import Pricing from "@/components/Pricing";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
-import BlogTeaser from "@/components/BlogTeaser";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -25,7 +24,6 @@ export default function Home() {
       <Pricing />
       <Testimonials />
       <FAQ />
-      <BlogTeaser />
       <CTA />
       <Footer />
     </>

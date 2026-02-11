@@ -154,7 +154,7 @@ export default function Pricing() {
         "5 GB Speicher",
         "1 Nutzer",
         "E-Mail-Support",
-        "Grundlegende Verschlüsselung",
+        "AES-256 Verschlüsselung",
       ],
       buttonText: "14 Tage kostenlos testen",
       buttonHref: "https://buy.stripe.com/3cI28qbcPbpadOqdtac7u03",

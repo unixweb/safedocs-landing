@@ -31,7 +31,7 @@ const faqItems = [
   {
     question: "Gibt es eine kostenlose Testphase?",
     answer:
-      "Ja, unser Starter-Plan ist dauerhaft kostenlos. Zudem können Sie den Business-Plan 14 Tage lang unverbindlich testen.",
+      "Ja, Sie können den Cloud Starter-Plan 14 Tage lang kostenlos und unverbindlich testen. Es ist keine Kreditkarte erforderlich.",
   },
 ];
 
