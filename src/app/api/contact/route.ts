@@ -28,7 +28,7 @@ export async function POST(request: Request) {
       },
       body: JSON.stringify({
         sender: { name: "SafeDocs Portal", email: "info@businesshelpdesk.biz" },
-        to: [{ email: "info@safedocsportal.com", name: "SafeDocs Portal" }],
+        to: [{ email: "info@businesshelpdesk.biz", name: "SafeDocs Portal" }],
         replyTo: { email, name },
         subject: `Enterprise Anfrage von ${name}`,
         htmlContent: `
