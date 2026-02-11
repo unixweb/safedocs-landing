@@ -125,8 +125,8 @@ export default function ArchitectureDiagram() {
             {/* PostgreSQL - Bottom (Dark Blue) */}
             <g className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`} style={{ transitionDelay: "300ms" }}>
               <rect x="330" y="370" width="140" height="65" rx="12" fill="#1e3a5f" fillOpacity="0.1" stroke="#1e3a5f" strokeWidth="2" />
-              <text x="400" y="400" textAnchor="middle" fontSize="15" fontWeight="700" fill="#1e3a5f" fontFamily="system-ui, sans-serif">PostgreSQL</text>
-              <text x="400" y="420" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="system-ui, sans-serif">Datenbank</text>
+              <text x="400" y="400" textAnchor="middle" fontSize="15" fontWeight="700" fill="#1e3a5f" fontFamily="system-ui, sans-serif">Datenbank</text>
+              <text x="400" y="420" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="system-ui, sans-serif">PostgreSQL</text>
             </g>
 
             {/* Redis - Right (Red) */}
