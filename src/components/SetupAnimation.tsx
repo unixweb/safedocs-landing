@@ -10,9 +10,9 @@ interface Step {
 
 const steps: Step[] = [
   {
-    command: "git clone https://github.com/safedocs/portal.git",
+    command: "git clone https://git.unixweb.net/unixweb/safedocsportal.git",
     output: [
-      "Cloning into 'portal'...",
+      "Cloning into 'safedocsportal'...",
       "remote: Enumerating objects: 1247, done.",
       "remote: Counting objects: 100% (1247/1247), done.",
       "Receiving objects: 100% (1247/1247), 2.84 MiB | 12.3 MiB/s, done.",
@@ -20,7 +20,7 @@ const steps: Step[] = [
     delay: 600,
   },
   {
-    command: "cd portal",
+    command: "cd safedocsportal",
     output: [],
     delay: 200,
   },
@@ -28,11 +28,11 @@ const steps: Step[] = [
     command: "docker compose up -d",
     output: [
       "[+] Running 5/5",
-      " ✓ Container portal-nginx-1      Started    0.8s",
-      " ✓ Container portal-postgres-1    Started    1.2s",
-      " ✓ Container portal-redis-1       Started    0.6s",
-      " ✓ Container portal-clamav-1      Started    1.5s",
-      " ✓ Container portal-app-1         Started    2.1s",
+      " ✓ Container safedocs-portal-frontend  Started    0.8s",
+      " ✓ Container safedocs-portal-db        Started    1.2s",
+      " ✓ Container safedocs-portal-redis     Started    0.6s",
+      " ✓ Container safedocs-portal-clamav    Started    1.5s",
+      " ✓ Container safedocs-portal-backend   Started    2.1s",
     ],
     delay: 800,
   },

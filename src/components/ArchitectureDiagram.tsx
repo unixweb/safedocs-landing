@@ -143,27 +143,6 @@ export default function ArchitectureDiagram() {
               <text x="150" y="265" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="system-ui, sans-serif">Virenscan</text>
             </g>
 
-            {/* Docker container indicators */}
-            <g className={`transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`} style={{ transitionDelay: "800ms" }}>
-              {/* Docker whale icons (simplified) for each node */}
-              {[
-                { x: 455, y: 75 },   // Nginx
-                { x: 465, y: 218 },  // Node.js
-                { x: 455, y: 380 },  // PostgreSQL
-                { x: 705, y: 225 },  // Redis
-                { x: 205, y: 225 },  // ClamAV
-              ].map((pos, i) => (
-                <g key={i} transform={`translate(${pos.x}, ${pos.y})`}>
-                  <rect width="18" height="12" rx="2" fill="#2496ed" fillOpacity="0.15" />
-                  {/* Container stack mini icon */}
-                  <rect x="2" y="2" width="4" height="3" rx="0.5" fill="#2496ed" fillOpacity="0.5" />
-                  <rect x="7" y="2" width="4" height="3" rx="0.5" fill="#2496ed" fillOpacity="0.5" />
-                  <rect x="12" y="2" width="4" height="3" rx="0.5" fill="#2496ed" fillOpacity="0.5" />
-                  <rect x="2" y="7" width="4" height="3" rx="0.5" fill="#2496ed" fillOpacity="0.5" />
-                  <rect x="7" y="7" width="4" height="3" rx="0.5" fill="#2496ed" fillOpacity="0.5" />
-                </g>
-              ))}
-            </g>
           </svg>
         </div>
       </div>
