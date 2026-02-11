@@ -304,7 +304,7 @@ export default function BlogTeaser() {
               )}
 
               <div className="p-6">
-                <p className="text-text-muted text-sm mb-2">{article.date}</p>
+                <p className="text-text-muted text-base mb-2">{article.date}</p>
                 <h3 className="font-bold text-lg mb-2">{article.title}</h3>
                 <p className="text-text-muted mb-4">{article.excerpt}</p>
                 <Link

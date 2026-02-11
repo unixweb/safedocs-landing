@@ -68,7 +68,7 @@ export default function Pricing() {
               }`}
             >
               {plan.highlighted && (
-                <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary-light px-4 py-1 text-sm font-semibold text-white">
+                <span className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary-light px-4 py-1 text-base font-semibold text-white">
                   Beliebt
                 </span>
               )}

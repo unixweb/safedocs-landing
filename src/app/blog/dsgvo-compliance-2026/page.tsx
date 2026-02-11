@@ -12,18 +12,18 @@ export default function DsgvoCompliancePage() {
           {/* Back link */}
           <Link
             href="/#blog"
-            className="inline-flex items-center gap-1 text-sm text-primary-light hover:underline mb-8"
+            className="inline-flex items-center gap-1 text-base text-primary-light hover:underline mb-8"
           >
             &larr; Zurück zur Startseite
           </Link>
 
           {/* Header */}
           <header className="mb-10">
-            <p className="text-text-muted text-sm mb-2">28. Januar 2026</p>
+            <p className="text-text-muted text-base mb-2">28. Januar 2026</p>
             <h1 className="text-3xl md:text-4xl font-bold text-primary leading-tight mb-4">
               DSGVO-Compliance: Was Unternehmen 2026 wissen müssen
             </h1>
-            <p className="text-lg text-text-muted">
+            <p className="text-xl text-text-muted">
               Die Datenschutz-Grundverordnung ist seit 2018 in Kraft — doch
               der regulatorische Rahmen entwickelt sich stetig weiter. Neue
               Leitlinien der Aufsichtsbehörden, die Verzahnung mit der
@@ -35,7 +35,7 @@ export default function DsgvoCompliancePage() {
           </header>
 
           {/* Article body */}
-          <div className="space-y-10 text-text-dark leading-relaxed text-[1.05rem]">
+          <div className="space-y-10 text-text-dark leading-relaxed text-lg">
             {/* 1 */}
             <section>
               <h2 className="text-2xl font-bold text-primary mb-3">
@@ -214,7 +214,7 @@ export default function DsgvoCompliancePage() {
 
           {/* CTA */}
           <div className="mt-14 rounded-xl bg-bg-light p-8 text-center">
-            <p className="text-lg font-semibold text-primary mb-2">
+            <p className="text-xl font-semibold text-primary mb-2">
               DSGVO-konforme Dokumentenverwaltung?
             </p>
             <p className="text-text-muted mb-5">
@@ -224,7 +224,7 @@ export default function DsgvoCompliancePage() {
             </p>
             <Link
               href="/#cta"
-              className="inline-block rounded-lg bg-primary-light px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary"
+              className="inline-block rounded-lg bg-primary-light px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-primary"
             >
               Jetzt kostenlos testen
             </Link>

@@ -42,7 +42,7 @@ export default function HowItWorks() {
             <h3 className="mt-4 text-xl font-bold text-text-dark">
               Registrieren
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-text-muted">
+            <p className="mt-2 text-base leading-relaxed text-text-muted">
               Kostenloses Konto in unter 2 Minuten erstellen.
             </p>
           </div>
@@ -102,7 +102,7 @@ export default function HowItWorks() {
             <h3 className="mt-4 text-xl font-bold text-text-dark">
               Dokumente hochladen
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-text-muted">
+            <p className="mt-2 text-base leading-relaxed text-text-muted">
               Per Drag &amp; Drop oder API — wir k&uuml;mmern uns um die
               Verschl&uuml;sselung.
             </p>
@@ -163,7 +163,7 @@ export default function HowItWorks() {
             <h3 className="mt-4 text-xl font-bold text-text-dark">
               Sicher zusammenarbeiten
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-text-muted">
+            <p className="mt-2 text-base leading-relaxed text-text-muted">
               Team einladen, Berechtigungen setzen, loslegen.
             </p>
           </div>
