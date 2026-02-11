@@ -109,7 +109,38 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <a href="/" className="text-xl font-bold text-primary">
+          <a href="/" className="flex items-center gap-2 text-xl font-bold text-primary">
+            <svg
+              viewBox="0 0 36 36"
+              className="h-8 w-8 shrink-0"
+              aria-hidden="true"
+            >
+              {/* Document background */}
+              <rect x="4" y="3" width="22" height="30" rx="3" fill="#e8f0fe" stroke="#245fa0" strokeWidth="1.5" />
+              {/* Text lines */}
+              <rect x="8" y="9" width="14" height="2" rx="1" fill="#245fa0" opacity="0.4" />
+              <rect x="8" y="14" width="10" height="2" rx="1" fill="#245fa0" opacity="0.3" />
+              <rect x="8" y="19" width="12" height="2" rx="1" fill="#245fa0" opacity="0.3" />
+              {/* Shield overlay */}
+              <g transform="translate(22, 18)">
+                <path
+                  d="M0-9 L9-5 L9 3 Q9 10 0 13 Q-9 10 -9 3 L-9-5 Z"
+                  fill="#1e3a5f"
+                />
+                <path
+                  d="M0-6.5 L6.5-3.5 L6.5 2 Q6.5 7.5 0 10 Q-6.5 7.5 -6.5 2 L-6.5-3.5 Z"
+                  fill="#245fa0"
+                />
+                <polyline
+                  points="-3.5,1.5 -1,4.5 4.5,-1.5"
+                  fill="none"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </g>
+            </svg>
             SafeDocs Portal
           </a>
 

@@ -1,9 +1,11 @@
 export default function Pricing() {
   const plans = [
     {
-      name: "Starter",
-      price: "Kostenlos",
-      priceSuffix: "",
+      name: "Cloud Starter",
+      price: "99€",
+      originalPrice: "199€",
+      priceSuffix: " /Monat",
+      discount: true,
       features: [
         "5 GB Speicher",
         "1 Nutzer",
@@ -14,9 +16,11 @@ export default function Pricing() {
       highlighted: false,
     },
     {
-      name: "Business",
-      price: "29€",
+      name: "Cloud Business",
+      price: "199€",
+      originalPrice: "299€",
       priceSuffix: " /Monat",
+      discount: true,
       features: [
         "100 GB Speicher",
         "Bis zu 10 Nutzer",
@@ -31,7 +35,9 @@ export default function Pricing() {
     {
       name: "Enterprise",
       price: "Auf Anfrage",
+      originalPrice: null,
       priceSuffix: "",
+      discount: false,
       features: [
         "Unbegrenzter Speicher",
         "Unbegrenzte Nutzer",
@@ -77,7 +83,12 @@ export default function Pricing() {
                 {plan.name}
               </h3>
 
-              <div className="mb-6">
+              <div className="mb-2">
+                {plan.discount && plan.originalPrice && (
+                  <span className="text-lg text-text-muted line-through mr-2">
+                    {plan.originalPrice}
+                  </span>
+                )}
                 <span className="text-4xl font-bold text-primary">
                   {plan.price}
                 </span>
@@ -85,6 +96,23 @@ export default function Pricing() {
                   <span className="text-text-muted">{plan.priceSuffix}</span>
                 )}
               </div>
+              <p className="text-xs text-text-muted mb-1">
+                Netto zzgl. 19% MwSt.
+              </p>
+
+              {plan.discount && (
+                <div className="mb-6">
+                  <span className="inline-flex items-center gap-1 rounded-full bg-red-50 px-3 py-1 text-sm font-semibold text-red-600">
+                    <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3" />
+                      <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth={2} fill="none" />
+                    </svg>
+                    Zeitlich begrenztes Angebot
+                  </span>
+                </div>
+              )}
+
+              {!plan.discount && <div className="mb-6" />}
 
               <ul className="mb-8 space-y-3">
                 {plan.features.map((feature) => (

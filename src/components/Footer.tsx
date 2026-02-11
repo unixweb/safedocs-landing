@@ -58,12 +58,12 @@ export default function Footer() {
             </h3>
             <ul className="mt-4 space-y-3">
               <li>
-                <a href="#impressum" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
+                <a href="/impressum" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
                   Impressum
                 </a>
               </li>
               <li>
-                <a href="#datenschutz" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
+                <a href="/datenschutz" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
                   Datenschutz
                 </a>
               </li>
@@ -87,8 +87,8 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="tel:+49123456789" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
-                  +49 123 456789
+                <a href="tel:+498980044390" className="text-base text-white/70 hover:text-white hover:underline transition-colors">
+                  +49-89-80044390
                 </a>
               </li>
             </ul>
