@@ -132,8 +132,8 @@ export default function ArchitectureDiagram() {
             {/* Redis - Right (Red) */}
             <g className={`transition-all duration-700 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"}`} style={{ transitionDelay: "350ms" }}>
               <rect x="580" y="215" width="140" height="65" rx="12" fill="#ef4444" fillOpacity="0.1" stroke="#ef4444" strokeWidth="2" />
-              <text x="650" y="245" textAnchor="middle" fontSize="15" fontWeight="700" fill="#ef4444" fontFamily="system-ui, sans-serif">Redis</text>
-              <text x="650" y="265" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="system-ui, sans-serif">Session &amp; Cache</text>
+              <text x="650" y="245" textAnchor="middle" fontSize="15" fontWeight="700" fill="#ef4444" fontFamily="system-ui, sans-serif">Cache</text>
+              <text x="650" y="265" textAnchor="middle" fontSize="11" fill="#64748b" fontFamily="system-ui, sans-serif">Redis</text>
             </g>
 
             {/* ClamAV - Left (Amber) */}
