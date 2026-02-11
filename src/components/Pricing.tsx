@@ -217,10 +217,10 @@ export default function Pricing() {
           {plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-xl bg-white p-8 shadow-sm ${
+              className={`relative rounded-xl bg-white p-8 shadow-sm ring-2 transition-all duration-300 hover:shadow-lg hover:scale-[1.03] ${
                 plan.highlighted
-                  ? "ring-2 ring-primary-light scale-105"
-                  : ""
+                  ? "ring-primary-light scale-105 hover:scale-[1.07]"
+                  : "ring-primary-light/40 hover:ring-primary-light"
               }`}
             >
               {plan.highlighted && (
