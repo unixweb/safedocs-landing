@@ -7,7 +7,7 @@ export default function DsgvoCompliancePage() {
     <>
       <Navbar />
 
-      <main className="bg-white pt-28 pb-20 px-4">
+      <main className="bg-bg-light pt-28 pb-20 px-4">
         <article className="mx-auto max-w-3xl">
           {/* Back link */}
           <Link
