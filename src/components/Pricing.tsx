@@ -12,7 +12,8 @@ export default function Pricing() {
         "E-Mail-Support",
         "Grundlegende Verschlüsselung",
       ],
-      buttonText: "Loslegen",
+      buttonText: "14 Tage kostenlos testen",
+      buttonHref: "https://buy.stripe.com/3cI28qbcPbpadOqdtac7u03",
       highlighted: false,
     },
     {
@@ -30,6 +31,7 @@ export default function Pricing() {
         "API-Zugang",
       ],
       buttonText: "Jetzt testen",
+      buttonHref: "",
       highlighted: true,
     },
     {
@@ -47,6 +49,7 @@ export default function Pricing() {
         "SLA-Garantie",
       ],
       buttonText: "Kontakt aufnehmen",
+      buttonHref: "",
       highlighted: false,
     },
   ];
@@ -137,13 +140,25 @@ export default function Pricing() {
               </ul>
 
               {plan.highlighted ? (
-                <button className="w-full rounded-lg bg-primary-light px-6 py-3 font-semibold text-white transition hover:bg-primary">
-                  {plan.buttonText}
-                </button>
+                plan.buttonHref ? (
+                  <a href={plan.buttonHref} className="block w-full rounded-lg bg-primary-light px-6 py-3 font-semibold text-white text-center transition hover:bg-primary">
+                    {plan.buttonText}
+                  </a>
+                ) : (
+                  <button className="w-full rounded-lg bg-primary-light px-6 py-3 font-semibold text-white transition hover:bg-primary">
+                    {plan.buttonText}
+                  </button>
+                )
               ) : (
-                <button className="w-full rounded-lg border-2 border-primary-light px-6 py-3 font-semibold text-primary-light transition hover:bg-primary-light hover:text-white">
-                  {plan.buttonText}
-                </button>
+                plan.buttonHref ? (
+                  <a href={plan.buttonHref} className="block w-full rounded-lg border-2 border-primary-light px-6 py-3 font-semibold text-primary-light text-center transition hover:bg-primary-light hover:text-white">
+                    {plan.buttonText}
+                  </a>
+                ) : (
+                  <button className="w-full rounded-lg border-2 border-primary-light px-6 py-3 font-semibold text-primary-light transition hover:bg-primary-light hover:text-white">
+                    {plan.buttonText}
+                  </button>
+                )
               )}
             </div>
           ))}
