@@ -175,7 +175,7 @@ export default function Pricing() {
         "Versionierung",
         "API-Zugang",
       ],
-      buttonText: "14 Tage kostenlos testen",
+      buttonText: "Jetzt starten",
       buttonHref: "https://buy.stripe.com/fZu5kC94H50MbGidtac7u04",
       highlighted: true,
       contact: false,
