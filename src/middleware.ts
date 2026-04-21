@@ -6,11 +6,11 @@ export function middleware(request: NextRequest) {
 
   const csp = [
     `default-src 'self'`,
-    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://js.stripe.com`,
+    `script-src 'self' 'nonce-${nonce}' 'strict-dynamic' https://js.stripe.com https://zensend.email`,
     `style-src 'self' 'unsafe-inline'`,
     `img-src 'self' data: blob:`,
     `font-src 'self'`,
-    `connect-src 'self' https://api.brevo.com https://api.stripe.com`,
+    `connect-src 'self' https://api.brevo.com https://api.stripe.com https://zensend.email`,
     `frame-src https://js.stripe.com`,
     `object-src 'none'`,
     `base-uri 'self'`,
