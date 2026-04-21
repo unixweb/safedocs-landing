@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
     `img-src 'self' data: blob:`,
     `font-src 'self'`,
     `connect-src 'self' https://api.brevo.com https://api.stripe.com https://zensend.email`,
-    `frame-src https://js.stripe.com`,
+    `frame-src https://js.stripe.com https://zensend.email`,
     `object-src 'none'`,
     `base-uri 'self'`,
     `form-action 'self'`,
