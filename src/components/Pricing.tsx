@@ -291,7 +291,7 @@ export default function Pricing() {
                     <span
                       className={
                         plan.mutedFeatures?.includes(feature)
-                          ? "text-text-muted"
+                          ? "text-text-muted line-through"
                           : "text-text-dark"
                       }
                     >
