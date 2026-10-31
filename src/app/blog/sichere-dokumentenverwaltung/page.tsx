@@ -73,7 +73,7 @@ export default function BlogArticlePage() {
               <p className="mb-3">
                 Verschlüsselung ist kein optionales Feature, sondern eine
                 Grundvoraussetzung für sichere Dokumentenverwaltung. Dabei
-                sind drei Ebenen relevant:
+                sind zwei Ebenen relevant:
               </p>
               <ul className="list-disc pl-6 space-y-2 mb-3">
                 <li>
@@ -86,13 +86,6 @@ export default function BlogArticlePage() {
                   <strong>In Transit:</strong> Jede Datenübertragung —
                   zwischen Browser und Server, zwischen Standorten oder zu
                   mobilen Geräten — muss über TLS 1.3 oder höher erfolgen.
-                </li>
-                <li>
-                  <strong>Ende-zu-Ende (E2E):</strong> Bei besonders
-                  schutzbedürftigen Dokumenten kann eine Ende-zu-Ende-
-                  Verschlüsselung sinnvoll sein. Dabei liegen die
-                  Schlüssel ausschließlich beim Nutzer, nicht beim
-                  Plattformbetreiber.
                 </li>
               </ul>
               <p>

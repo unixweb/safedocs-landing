@@ -3,7 +3,7 @@ export default function Features() {
     {
       title: "Sichere Speicherung",
       description:
-        "Alle Dokumente werden Ende-zu-Ende verschlüsselt gespeichert. Ihre Daten sind jederzeit geschützt.",
+        "Alle Dokumente werden mit AES-256 verschlüsselt gespeichert. Ihre Daten sind jederzeit geschützt.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"

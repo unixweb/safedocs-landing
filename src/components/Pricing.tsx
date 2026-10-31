@@ -171,7 +171,7 @@ export default function Pricing() {
         "100 GB Speicher",
         "Bis zu 10 Nutzer",
         "Prioritäts-Support",
-        "Ende-zu-Ende Verschlüsselung",
+        "AES-256 Verschlüsselung",
         "Versionierung",
         "API-Zugang",
       ],
